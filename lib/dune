@@ -1,0 +1,7 @@
+(library
+ (name owo2))
+
+(ocamllex lexer)
+
+; (menhir
+;   (modules parser))
