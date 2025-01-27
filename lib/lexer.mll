@@ -1,5 +1,5 @@
 {
-    open Token
+    open Parser
 }
 
 let white = [' ' '\t']+
@@ -16,18 +16,20 @@ let ident = (chars | '_')(chars | digits | '_')*
 rule tokenize = parse
     | eof { EOF }
     | white { tokenize lexbuf }
-    | newline { TNewline }
+    | newline { tokenize lexbuf }
     | "I haz" { TLet }
     | "! owo" { TDelim }
     | "itz" { TAssign }
-    | "ril" { TTrue }
-    | "fek" { TFalse }
+    | "ril" { TBool(true) }
+    | "fek" { TBool(false) }
     | "pluz" { TPlus }
     | "minuz" { TMinus }
     | "muwipwy" { TMultiply }
     | "dividid" { TDivide }
     | "GIMME" { TInput }
     | "AAAAA" { TOutput }
+    | "(" { TLParen }
+    | ")" { TRParen }
     | "{" { TLBrace }
     | "}" { TRBrace }
     | "[" { TLSquare }

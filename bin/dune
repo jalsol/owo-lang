@@ -1,4 +1,4 @@
 (executable
  (public_name owo2)
  (name main)
- (libraries owo2))
+ (libraries owo2 core))

@@ -6,15 +6,15 @@ type t =
     | TIdent of string
     | TNumber of float
     | TString of string
-    | TTrue
-    | TFalse
+    | TBool of bool
+    | TLParen
+    | TRParen
     | TLBrace
     | TRBrace
     | TLSquare
     | TRSquare
     | TColon
     | TComma
-    | TNewline
     | TPlus
     | TMinus
     | TMultiply
@@ -30,15 +30,15 @@ let pretty_print = function
     | TIdent(ident) -> Printf.sprintf "TIdent(%s)" ident
     | TString(string) -> Printf.sprintf "TString(%s)" string
     | TNumber(number) -> Printf.sprintf "TNumber(%f)" number
-    | TTrue -> "TTrue"
-    | TFalse -> "TFalse"
+    | TBool(bool) -> Printf.sprintf "TBool(%b)" bool
+    | TLParen -> "TLParen"
+    | TRParen -> "TRParen"
     | TLBrace -> "TLBrace"
     | TRBrace -> "TRBrace"
     | TLSquare -> "TLSquare"
     | TRSquare -> "TRSquare"
     | TColon -> "TColon"
     | TComma -> "TComma"
-    | TNewline -> "\n"
     | TPlus -> "TPlus"
     | TMinus -> "TMinus"
     | TMultiply -> "TMultiply"
