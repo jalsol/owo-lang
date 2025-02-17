@@ -36,6 +36,10 @@ rule tokenize = parse
     | "]" { TRSquare }
     | ":" { TColon }
     | "," { TComma }
+    | "haii" { TBegin }
+    | "plz" { TEnd }
+    | "CALL ME" { TFuncDef }
+    | "HERE'S UR" { TReturn }
     | "\"" { TString(read_string_literal (Buffer.create 16) lexbuf) }
     | number as lexeme { TNumber(float_of_string lexeme) }
     | ident as lexeme { TIdent(lexeme) }
